@@ -91,6 +91,8 @@ static void lk2nd_partition_split_mmc(void)
 #ifdef LK2ND_PARTITION_SIZE
 	partition_split_mmc(LK2ND_PARTITION_BASE, LK2ND_PARTITION_NAME,
 			    LK2ND_PARTITION_SIZE / block_size, false);
+			    partition_split_mmc(LK2ND_PARTITION_NAME, "qhypstub",
+			   4096 / block_size, true);
 #endif
 }
 
@@ -105,6 +107,8 @@ static void lk2nd_partition_split_flash(void)
 #ifdef LK2ND_PARTITION_SIZE
 	partition_split_flash(ptable, LK2ND_PARTITION_BASE, LK2ND_PARTITION_NAME,
 			      LK2ND_PARTITION_SIZE / block_size, false);
+			      partition_split_flash(ptable, LK2ND_PARTITION_NAME, "qhypstub",
+			     4096 / block_size, true);
 #endif
 }
 
